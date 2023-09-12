@@ -1,0 +1,5 @@
+* A Certain Dylinquent Noteset
+
+Penned by Kyle Dituro in Fall Semester of 2023.
+
+Based on lectures by Dylan Ryan, reading from Commutative algebra by Atiya and MacDonald.
