@@ -45,10 +45,29 @@ Notice that the structure of quotient rings by ideals classifies nicely:
   \item \(R/P\) is an Integral domain \(\longleftrightarrow\) \(P\) is prime.
   \end{enumerate}
 \end{thm}
-\begin{proof}
-  {\color{red} \textit{(Exercise)}}
+\begin{proof} Solution given by Saskia:
+  \begin{enumerate}
+  \item [(1.)]\hspace{0ex}
+    \begin{enumerate}
+    \item [(\(\Rightarrow\))] \(R/M\) is a field, so it therefore has no nontrivial ideals. Then also, by the correspondence theorem \(R\) has no ideals \(I\) with \(M \subset I \subset R\).
+    \item [(\(\Leftarrow\))] Works the same way as foward direction.\partdone
+    \end{enumerate}
+  \item [(2.)]\hspace{0ex}
+    \begin{enumerate}
+    \item [\(\Rightarrow\)]. We have that \([x],[y] \in R/M\), so then \(x_1 \in [x], y_1 \in [y]\), but then \([x_1y_1] = [xy] = 0\) iff \([x]\) or \([y] = 0\). Then, by definition of an ideal, \(x_1y_1 \in M \Leftrightarrow x_1\) or \(y_1 \in M\).
+    \item [(\(\Leftarrow\))] Since \(M\) is a prime ideal, \(xy \in M\) means that one of \(x\) or \(y\) is in \(M\), then \([xy] = [x][y] = 0 \Leftrightarrow [x]=0\) or \([y] = 0\)
+    \end{enumerate}
+  \end{enumerate}
 \end{proof}
 
+\begin{proof}
+  Altermative proof of the field condition given by Ishaan.
+
+  \begin{enumerate}
+  \item [(\(\Rightarrow\))] Let \(I\) be an ideal such that \(M \subseteq I\). Then let \(a \in I\) be given such that \(a \not\in M\). Then \(a + M \neq 0 + M\), and also \(\exists b + M\) such that \((a + M)(b + M) = 1 + M\). Then \(ab + M  = 1+M\), which indicates that \(ab - 1 \in M \subsetneq I\). Thus \(ab \in I, 1 \in I\), so \(1 \in I = R\).
+  \item [(\(\Leftarrow\))] Suppose that \(M\) is maximal, then let \(a + M \in R/M\) such such that \(a + M \neq 0 + M\). Now notice that if we attempt to extend the ideal \(M\) via \(a\), 
+  \end{enumerate}
+\end{proof}
 \begin{note}
   Every maximal ideal is prime.
 \end{note}
@@ -96,7 +115,25 @@ Notice that the structure of quotient rings by ideals classifies nicely:
 \item Prove (\ref{Ex2})
 \item Let \(K\) be a field show that \((f(x)) = (g(x))\) iff \(f\) and \(g\) differ by a constant for \(f(x), g(x) \in K[x]\), 
 \item Prove that if \(R\) is an integral domain, then \(R[x]\) is too.
+  \begin{proof}
+    \begin{enumerate}
+    \item [(\(\Rightarrow\))]Suppose that \((f(x)) = (g(x))\), \(f(x), g(x) \in K[x]\), then there exists some \(k(x), k\prime(x) \in K[x]\) such that \(f(x) = k(x)g(x)\) and \(g(x) = k\prime(x)f(x)\). Then \(\deg(f(x)) = \deg(k) + \deg(g) = \deg k + \deg k\prime + \deg f\), and so the degree of the \(k\)s must be zero.
+    \item [(\(\Leftarrow\))] Suppose that \(\exists c, c\prime \in \R\) such that \(f(x) = cg(x)\) and \(g(x) = c\prime f(x)\)
+    \end{enumerate}
+  \end{proof}
 \item Define \(\C[[x]] = \opn \sum_{n=0}^\infty a_nx^n \stbar a_n \in \C\cls\). This is the ring of formal power series. Show that \(\C[[x]]\) is a local ring.
+
+  \begin{proof}
+    Consider the ideal of non-units \(M = \langle x \rangle\), i.e. the ideal of al formal power series with constant term \(= 0\).
+
+    It is trivially obvious that this is an ideal.
+
+    Now notice that \(\C[[x]]/M \cong \C\) since \(\forall a \in \C[[x]]\),
+    \begin{align*}
+      a = \sum_{i=0}^\infty a_ix^i = \underbrace{\left(\sum_{i = 1}^\infty a_ix^i\right)}_{\in \langle x \rangle} + a_0,
+    \end{align*}
+    so in \(\C[[x]]/M\), \(\overline{a}\) is in bijection with \(a_0\) in \(\C\). Then, since \(\C\) is a field, \(M\) must indeed be maximal. Now suppose tha tthere was some other maximal ideal \(M\prime \neq M\). But if this is the case, then there must be some unit \(u \in M\prime\), which means that \(1 = uu\1 \in M\prime\), so \(M\prime = \C[[x]]\). And thus \(M\) is indeed a unique maximal ideal.
+  \end{proof}
 \end{enumerate}
 \end{document}
 %%% Local Variables:
