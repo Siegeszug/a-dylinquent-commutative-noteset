@@ -50,7 +50,7 @@ Notice that the structure of quotient rings by ideals classifies nicely:
   \item [(1.)]\hspace{0ex}
     \begin{enumerate}
     \item [(\(\Rightarrow\))] \(R/M\) is a field, so it therefore has no nontrivial ideals. Then also, by the correspondence theorem \(R\) has no ideals \(I\) with \(M \subset I \subset R\).
-    \item [(\(\Leftarrow\))] Works the same way as foward direction.\partdone
+    \item [(\(\Leftarrow\))] Works the same way as forward direction.\partdone
     \end{enumerate}
   \item [(2.)]\hspace{0ex}
     \begin{enumerate}
@@ -61,11 +61,11 @@ Notice that the structure of quotient rings by ideals classifies nicely:
 \end{proof}
 
 \begin{proof}
-  Altermative proof of the field condition given by Ishaan.
+  Alternative proof of the field condition given by Ishaan.
 
   \begin{enumerate}
   \item [(\(\Rightarrow\))] Let \(I\) be an ideal such that \(M \subseteq I\). Then let \(a \in I\) be given such that \(a \not\in M\). Then \(a + M \neq 0 + M\), and also \(\exists b + M\) such that \((a + M)(b + M) = 1 + M\). Then \(ab + M  = 1+M\), which indicates that \(ab - 1 \in M \subsetneq I\). Thus \(ab \in I, 1 \in I\), so \(1 \in I = R\).
-  \item [(\(\Leftarrow\))] Suppose that \(M\) is maximal, then let \(a + M \in R/M\) such such that \(a + M \neq 0 + M\). Now notice that if we attempt to extend the ideal \(M\) via \(a\), 
+  \item [(\(\Leftarrow\))] Suppose that \(M\) is maximal, then let \(a + M \in R/M\) such such that \(a + M \neq 0 + M\). Now notice that if we attempt to extend the ideal \(M\) via \(a\), we will get the whole ring. So then since \(1 \in R\), \(\exists r \in R\), \(\exists m \in M\) such that \(1 = ra + m\), so \(1 + M = ra + M\), and \((r + M)(a + M)\).
   \end{enumerate}
 \end{proof}
 \begin{note}
@@ -124,7 +124,7 @@ Notice that the structure of quotient rings by ideals classifies nicely:
 \item Define \(\C[[x]] = \opn \sum_{n=0}^\infty a_nx^n \stbar a_n \in \C\cls\). This is the ring of formal power series. Show that \(\C[[x]]\) is a local ring.
 
   \begin{proof}
-    Consider the ideal of non-units \(M = \langle x \rangle\), i.e. the ideal of al formal power series with constant term \(= 0\).
+    Consider the ideal of non-units \(M = \langle x \rangle\), i.e. the ideal of all formal power series with constant term \(= 0\).
 
     It is trivially obvious that this is an ideal.
 
@@ -132,7 +132,7 @@ Notice that the structure of quotient rings by ideals classifies nicely:
     \begin{align*}
       a = \sum_{i=0}^\infty a_ix^i = \underbrace{\left(\sum_{i = 1}^\infty a_ix^i\right)}_{\in \langle x \rangle} + a_0,
     \end{align*}
-    so in \(\C[[x]]/M\), \(\overline{a}\) is in bijection with \(a_0\) in \(\C\). Then, since \(\C\) is a field, \(M\) must indeed be maximal. Now suppose tha tthere was some other maximal ideal \(M\prime \neq M\). But if this is the case, then there must be some unit \(u \in M\prime\), which means that \(1 = uu\1 \in M\prime\), so \(M\prime = \C[[x]]\). And thus \(M\) is indeed a unique maximal ideal.
+    so in \(\C[[x]]/M\), \(\overline{a}\) is in bijection with \(a_0\) in \(\C\). Then, since \(\C\) is a field, \(M\) must indeed be maximal. Now suppose that there was some other maximal ideal \(M\prime \neq M\). But if this is the case, then there must be some unit \(u \in M\prime\), which means that \(1 = uu\1 \in M\prime\), so \(M\prime = \C[[x]]\). And thus \(M\) is indeed a unique maximal ideal\footnote{There is an assumption here that \(M\) really is the ideal containing all the non units, but this is easy to show}.
   \end{proof}
 \end{enumerate}
 \end{document}
