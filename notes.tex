@@ -182,42 +182,106 @@ Let \(K\) be an algebraically closed field, and let \(R = k[x_1, \ldots, x_n]\).
 \begin{exa}
   \(y - x^2 \in \R[x, y]\) will have a zero locus shaped like a parabola in the \(x-y\) plane.
 \end{exa}
-  \begin{df}
-    For \(A \subseteq K^n\), define
-    \begin{align*}
-      I(A) = \opn f \in R \stbar f(p) = 0 \forall p \in A \cls
-    \end{align*}
-  \end{df}
-  \begin{exa}
-    Taking \(A = \opn -2, 2 \cls\), and we get \((x-2) \cap (x + 2) = (x^2 - 4)\).
-  \end{exa}
+\begin{df}
+  For \(A \subseteq K^n\), define
+  \begin{align*}
+    I(A) = \opn f \in R \stbar f(p) = 0 \forall p \in A \cls
+  \end{align*}
+\end{df}
+\begin{exa}
+  Taking \(A = \opn -2, 2 \cls\), and we get \((x-2) \cap (x + 2) = (x^2 - 4)\).
+\end{exa}
 
-  Ideally\footnote{pun intended} we would like for there to be a 1-1 correspondence between the zero loci of polynomials and ideals... Is this so?p
+Ideally\footnote{pun intended} we would like for there to be a 1-1 correspondence between the zero loci of polynomials and ideals... Is this so?p
 
-  \begin{exa}
-    \(Z(x^2) = 0 = Z(0)\).
-  \end{exa}
+\begin{exa}
+  \(Z(x^2) = 0 = Z(0)\).
+\end{exa}
 
-  Well dang. There goes that idea. Here's a better one:
+Well dang. There goes that idea. Here's a better one:
 
-  \begin{thm}[Hilbert's Nullstelensatz (I spelt this wrong)]
-    Let \(I \subseteq R\) and suppose that \(f\) vanishes on all of \(Z(I)\), then \(f^r \in I\) for some \(r\).
-  \end{thm}
+\begin{thm}[Hilbert's Nullstelensatz (I spelt this wrong)]
+  Let \(I \subseteq R\) and suppose that \(f\) vanishes on all of \(Z(I)\), then \(f^r \in I\) for some \(r\).
+\end{thm}
 
-  \subsection{Exercises}
+\subsection{Exercises}
+\begin{enumerate}
+\item For \(\Z\), show:
   \begin{enumerate}
-  \item For \(\Z\), show:
-    \begin{enumerate}
-    \item \((m) + (n) = (\gcd(m,n))\)
-    \item \((m) \cap (n) = (\mathrm{lcm}(m, n))\)
-    \item \((m)(n) = (mn)\)
-    \end{enumerate}
-  \item For \(\Z\) \((m:n) = \left(\frac{m}{\gcd(m,n)}\right)\)
-  \item Prove Proposition \ref{Prob2.3}
-  \item Problem 15 in Atiyah.
-  \item Problem 17 in Atiyah.
-  \item Problem 19 in Atiyah.
+  \item \((m) + (n) = (\gcd(m,n))\)
+  \item \((m) \cap (n) = (\mathrm{lcm}(m, n))\)
+  \item \((m)(n) = (mn)\)
   \end{enumerate}
+\item For \(\Z\) \((m:n) = \left(\frac{m}{\gcd(m,n)}\right)\)
+\item Prove Proposition \ref{Prob2.3}
+\item Problem 15 in Atiyah.
+\item Problem 17 in Atiyah.
+\item Problem 19 in Atiyah.
+\end{enumerate}
+\section{Will Talks about Categories of Modules}
+
+The idea for this talk was spurned on by an offhand comment by Richard E. Borcherds, who mentioned that rings act on modules in a similar way to how groups act on sets. So we'll do some category theory to justify this
+
+\begin{df}
+  A \textit{category} \(\mathcal{C}\) is comprised of the following data:
+  \begin{enumerate}
+  \item A collection of objects, denoted \(\mathrm{ob} \mathcal{C}\), 
+  \item A collection of morphisms
+    \begin{align*}
+      \mathcal{C}(a, b) = \opn f: a \to b \cls \quad \text{for } a, b \in \mathrm{ob} \mathcal{C}
+    \end{align*}
+  \item A collection of \textit{identity morphisms}
+    \begin{align*}
+      j_a: 1 \to \mathcal{C}(a,a)
+    \end{align*}
+  \end{enumerate}
+\end{df}
+
+We call a function an identity morphism pursuant to the following diagrams. First, see that for a composition law, we need that for 
+\begin{align*}
+  \cdot : \mathcal{C}(b,c)\times \mathcal{C}(a,b) \to \mathcal{C}(a, c)
+\end{align*}
+We get that 
+
+\begin{center}
+  \begin{tikzcd}
+    (\mathcal{C}(c,d) \times \mathcal{C}(b,c)) \times \mathcal{C}(a,b) \arrow[d, "\circ \times \text{id}"] \arrow[rr, "\text{ass}"] & & \mathcal{C}(c,d) \times (\mathcal{C}(b,c) \times \mathcal{C}(a, b)) \arrow[d, "\text{id} \times \circ"] \\
+    \mathcal{C}(b, d) \times \mathcal{C}(a,b) \arrow[dr, "\circ"] & & \mathcal{C}(c,d) \times \mathcal{C}(a,c) \arrow[dl, "\circ"] \\
+    & \mathcal{C}(a, d) & 
+  \end{tikzcd}
+\end{center}
+We also need that the identities are actually identities, in other words:
+
+\begin{center}
+  \begin{tikzcd}
+    \mathcal{C}(b,b) \times \mathcal{C}(a,b) \arrow[r, "\circ"] &\mathcal{C}(a,b) & \mathcal{C}(a,b) \times \mathcal{C}(a,a) \arrow[l, "\circ"] \\
+    \arrow[u, "j_b \times \text{id}"] 1 \times \mathcal{C}(a,b) \arrow[ur, "\cong"] & & \mathcal{C}(a,b) \times 1 \arrow[ul, "\cong"] \arrow[u, "\text{id} \times j_a"]
+  \end{tikzcd}
+\end{center}
+We have many examples of categories, we will not list them all here... but here are a few:
+\begin{exa}
+  \begin{enumerate}
+  \item Groups with group homomorphisms
+  \item Representations with \(G\)-equiv. maps
+  \item Posets with order-preserving maps
+  \item Posets
+  \item Quivers
+  \item Top. with continuous functions
+  \item Manifolds with \(C^\infty\) maps.
+  \item and et. cetera.
+  \end{enumerate}
+\end{exa}
+
+Another quick definition,
+
+\begin{df}
+  A morphism \(f\) is an \textit{epimorphism} if \(hf = gf \Rightarrow h = g\). A \textit{monomorphism} if \(fh = fd \Rightarrow h = g\), and an \textit{isomorphism} if it is a morphism with an inverse.
+\end{df}
+
+\subsection{The Punchline}
+
+The kind of general idea here stated in \textbf{very} broad strokes is that group actions can be thought of as maps from a one-element category to Set, and likewise we can think of rings as an enriched one object category over Abelian Groups, and this structures functor to abelian groups is a module.
+
 \end{document}
 %%% Local Variables:
 %%% mode: latex
